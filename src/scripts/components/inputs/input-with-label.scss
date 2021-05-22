@@ -1,0 +1,33 @@
+.input-with-label {
+    position: relative;
+
+    &-text {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+    }
+    
+    &-field {
+        border: none;
+        border-bottom: 2px solid blue;
+        transition: border-color 0.3s;
+        outline: none;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &:not(:placeholder-shown),
+        &:focus {
+            border-color: red;
+
+            + .input-with-label-text {
+                display: block;
+                position: absolute;
+                top: -17px;
+                font-size: 13px;
+            }
+        }
+    }
+}
