@@ -1,11 +1,9 @@
 import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      123
-    </div>
-  );
-}
+const App = () => (
+  <section className="App">
+    123
+  </section>
+);
 
 export default App;
