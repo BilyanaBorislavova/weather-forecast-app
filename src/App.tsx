@@ -2,12 +2,12 @@ import './styles/styles.scss';
 
 import React from 'react';
 import Navigation from './components/navigation/navigation';
-import SearchInput from './components/search-input/search-input';
+import Home from './components/home/home';
 
 const App = () => (
   <section className="App">
     <Navigation />
-    <SearchInput />
+    <Home />
   </section>
 );
 
