@@ -4,7 +4,7 @@ class WeatherForecastAPIService {
 
     constructor() {
         this.weatherForecastApi = 'https://api.openweathermap.org/data/2.5/weather';
-        this.weatherForecastApiKey = '9084ddbf903402f623057097382452e4';
+        this.weatherForecastApiKey = '4448b0a0fb2bb13aa9d24de7dd358fc3';
     }
 
     getWeatherForecastByLatAndLon = (lat: string, lon: string) =>
