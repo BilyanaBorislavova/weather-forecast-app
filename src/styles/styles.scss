@@ -2,6 +2,14 @@
 @import './generic/reset.scss';
 @import './generic/normalize.scss';
 
+// Fonts
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/fonts/Lato-Regular.woff') format('woff2'),
+        url('../assets/fonts/Lato-Regular.woff') format('woff');
+    font-display: swap;
+}
+
 body {
     min-height: 100vh;
 }
