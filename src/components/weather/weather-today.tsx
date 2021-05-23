@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { SunnyIcon, StormyIcon, RainyIcon, CloudyIcon } from '../icons/icons';
 import { WEATHER_TYPES } from '../../constants/constants';
+import { SunnyIcon, StormyIcon, RainyIcon, CloudyIcon } from '../icons/icons';
 
 interface WeatherTodayProps {
     location: string,
@@ -25,7 +25,7 @@ const WeatherToday: React.FC<WeatherTodayProps> = ({ location, degrees, weatherT
             <h3 className="weather-today-title">
                 {location}
             </h3>
-            <article className="weather-today-main-content">
+            <article className="weather-today-content">
                 {mappedIcon}
                 {degrees}
                 {weatherType}
