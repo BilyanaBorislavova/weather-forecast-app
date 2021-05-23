@@ -1,4 +1,4 @@
-class WeatherForecastService {
+class WeatherForecastAPIService {
     weatherForecastApi: string;
     weatherForecastApiKey: string;
 
@@ -14,4 +14,4 @@ class WeatherForecastService {
         `${this.weatherForecastApi}?q=${cityName}&appid=${this.weatherForecastApiKey};`
 }
 
-export default WeatherForecastService;
+export default WeatherForecastAPIService;
