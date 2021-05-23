@@ -3,14 +3,14 @@ class WeatherForecastAPIService {
     weatherForecastApiKey: string;
 
     constructor() {
-        this.weatherForecastApi = 'https://api.openweathermap.org/data/2.5/';
+        this.weatherForecastApi = 'https://api.openweathermap.org/data/2.5/weather';
         this.weatherForecastApiKey = '9084ddbf903402f623057097382452e4';
     }
 
-    constructApiFromLatAndLon = (lat: string, lon: string) =>
+    getWeatherForecastByLatAndLon = (lat: string, lon: string) =>
         `${this.weatherForecastApi}?lat=${lat}&lon=${lon}&appid=${this.weatherForecastApiKey}`;
     
-    constructApiFromCityName = (cityName: string) => 
+    getWeatherForecastByCityName = (cityName: string) => 
         `${this.weatherForecastApi}?q=${cityName}&appid=${this.weatherForecastApiKey};`
 }
 
