@@ -57,7 +57,7 @@ const useGeoLocation = () => {
     const handleUserLocation = () => {
         const { geolocation } = navigator;
 
-        if(geolocation) {
+        if (geolocation) {
             geolocation.getCurrentPosition(handleLocationSuccess, handleLocationError);
         }
     }
