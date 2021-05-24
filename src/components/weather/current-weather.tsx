@@ -29,7 +29,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ location, degrees, feel
     return (
         <section className="current-weather">
             <h3 className="current-weather-title">
-                {location}
+                Current weather for {location} is:
             </h3>
             <article className="current-weather-content">
                 {mappedIcon}

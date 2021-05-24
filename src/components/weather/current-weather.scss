@@ -6,8 +6,17 @@
         @include font-family-lato;
     }
 
+    &-title {
+        font-size: 24px;
+    }
+
+    &-content {
+        display: grid;
+        row-gap: 8px;
+    }
+
     svg {
-        width: 217px;
+        width: 175px;
         height: auto;
     }
 }
