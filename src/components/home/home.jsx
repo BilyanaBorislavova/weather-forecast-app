@@ -7,6 +7,7 @@ import WeatherForecastAPIService from '../../services/weather-forecast-api-servi
 import { getNthDaysFromNow } from '../../utils/data-utils';
 import DailyWeatherCards from '../weather/daily-weather-cards';
 import CurrentWeather from '../weather/current-weather';
+import useWeatherData from '../../hooks/use-weather-data';
 
 const Home = () => {
     const weatherApiService = new WeatherForecastAPIService();
@@ -14,23 +15,13 @@ const Home = () => {
     const { latitude, longitude } = coordinates;
     const { code, message } = error;
 
-    const { data: weatherData, isLoading: isLoadingData } = useWeatherForecastApi(weatherApiService, [latitude, longitude]);
     const {
-        current: currentWeather,
-        daily: dailyWeather,
-        hourly: hourlyWeather,
-        timezone,
-    } = weatherData;
-
-    let daysCounter = -1; // used to start from the first day
-    const dailyWeatherWithDate = dailyWeather && dailyWeather.map(weather => {
-        daysCounter += 1;
-
-        return ({
-            ...weather,
-            date: getNthDaysFromNow(daysCounter)
-        })
-    })
+        isLoadingWeatherData,
+        currentWeather,
+        dailyWeatherWithDate,
+        hourlyWeather,
+        location
+    } = useWeatherData(weatherApiService, [ latitude, longitude ]);
 
     if (isLoading) {
         return <h1>Page is Loading!</h1>
@@ -44,7 +35,7 @@ const Home = () => {
         <section className="home">
             {currentWeather && (
                 <CurrentWeather
-                  location={timezone}
+                  location={location}
                   degrees={currentWeather.temp}
                   feelsLikeDegrees={currentWeather.feels_like}
                   weatherType={currentWeather.weather[0].main}

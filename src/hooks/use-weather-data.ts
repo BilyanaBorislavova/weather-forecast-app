@@ -17,7 +17,7 @@ const useWeatherData = (weatherApiService: WeatherForecastAPIService, params: Ar
 
         return ({
             ...weather,
-            date: getNthDaysFromNow(daysCounter)
+            date: getNthDaysFromNow(daysCounter),
         })
     });
 
