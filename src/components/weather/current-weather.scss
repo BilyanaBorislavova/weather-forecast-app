@@ -1,0 +1,13 @@
+@import '../../styles/tools/mixins.scss';
+
+.current-weather {
+    &-title,
+    &-content {
+        @include font-family-lato;
+    }
+
+    svg {
+        width: 217px;
+        height: auto;
+    }
+}

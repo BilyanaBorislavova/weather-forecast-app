@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import './home.scss';
+
+import * as React from 'react';
 import useGeoLocation from '../../hooks/use-geo-location';
 import useWeatherForecastApi from '../../hooks/use-weather-forecast-api';
 import WeatherForecastAPIService from '../../services/weather-forecast-api-service';
