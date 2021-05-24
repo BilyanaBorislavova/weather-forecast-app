@@ -1,5 +1,7 @@
 .page-content-wrapper {
     max-width: 1250px;
+    display: grid;
+    row-gap: 47px;
     margin: auto;
-    padding: 0 20px;;
+    padding: 0 20px;
 }
