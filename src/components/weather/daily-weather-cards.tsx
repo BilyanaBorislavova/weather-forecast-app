@@ -8,24 +8,23 @@ interface DailyWeatherCardsProps {
 const DailyWeatherCards: React.FC<DailyWeatherCardsProps> = ({ dailyWeather }) => (
     <section className="daily-weather-cards">
         <h4 className="daily-weather-cards-title">
-            Daily
+            Daily Weather Forecast
         </h4>
         <ul className="daily-weather-cards-list">
             {
                 dailyWeather && dailyWeather.map(weatherData => {
-                    const { dt, weather, temp: { max, min } } = weatherData;
+                    const { dt, date, weather, temp: { max, min } } = weatherData;
                     const [ weatherType ] = weather;
 
                     return (
                         <li id={dt} className="daily-weather-cards-list-item">
-                        <DailyWeatherCard
-                          day="Monday"
-                          date={2}
-                          weatherType={weatherType}
-                          maxDegrees={max}
-                          minDegrees={min}
-                          {...weatherData}
-                        />
+                            <DailyWeatherCard
+                              date={date}
+                              weatherType={weatherType}
+                              maxDegrees={max}
+                              minDegrees={min}
+                              {...weatherData}
+                            />
                     </li>
                     )
                 })
