@@ -1,8 +1,8 @@
 const WEATHER_TYPES = {
-    SUNNY: 'sunny',
-    CLOUDY: 'cloudy',
-    RAINY: 'rainy',
-    STORMY: 'stormy',
+    SUNNY: 'sun',
+    CLOUDY: 'clouds',
+    RAINY: 'rain',
+    STORMY: 'storm',
 };
 
 export {
