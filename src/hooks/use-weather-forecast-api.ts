@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { fetchData } from '../utils/fetch';
 import WeatherForecastAPIService from '../services/weather-forecast-api-service';
 
 const useWeatherForecastApi = (service: WeatherForecastAPIService, options: Array<string>) => {
@@ -29,7 +28,10 @@ const useWeatherForecastApi = (service: WeatherForecastAPIService, options: Arra
         }
     }, [ isLoading, endpoint ])
 
-    return data;
+    return {
+        data,
+        isLoading,
+    };
 };
 
 export default useWeatherForecastApi;
