@@ -2,7 +2,7 @@ import './daily-weather-card.scss';
 
 import * as React from 'react';
 import { WEATHER_TYPES } from '../../constants/constants';
-import { SunnyIcon, StormyIcon, RainyIcon, CloudyIcon } from '../icons/icons';
+import { SunnyIcon, StormyIcon, RainyIcon, CloudyIcon, ClearIcon } from '../icons/icons';
 
 interface DailyWeatherCardProps {
     date: number | string,
@@ -11,7 +11,7 @@ interface DailyWeatherCardProps {
     minDegrees: number | string,
 };
 
-const { SUNNY, STORMY, RAINY, CLOUDY } = WEATHER_TYPES;
+const { SUNNY, STORMY, RAINY, CLOUDY, CLEAR } = WEATHER_TYPES;
 
 const DailyWeatherCard: React.FC<DailyWeatherCardProps> = ({ date, weatherType, maxDegrees, minDegrees }) => {
     const icon = {
@@ -19,6 +19,7 @@ const DailyWeatherCard: React.FC<DailyWeatherCardProps> = ({ date, weatherType, 
         [STORMY]: <StormyIcon />,
         [RAINY]: <RainyIcon />,
         [CLOUDY]: <CloudyIcon />,
+        [CLEAR]: <ClearIcon />
     };
     const { main, description } = weatherType;
     const sanitizedWeatherType = main.toLowerCase();

@@ -1,6 +1,8 @@
+import './current-weather.scss';
+
 import * as React from 'react';
 import { WEATHER_TYPES } from '../../constants/constants';
-import { SunnyIcon, StormyIcon, RainyIcon, CloudyIcon } from '../icons/icons';
+import { SunnyIcon, StormyIcon, RainyIcon, CloudyIcon, ClearIcon } from '../icons/icons';
 
 interface CurrentWeatherProps {
     location: string,
@@ -10,7 +12,7 @@ interface CurrentWeatherProps {
     humidity: number,
 }
 
-const { SUNNY, STORMY, RAINY, CLOUDY } = WEATHER_TYPES;
+const { SUNNY, STORMY, RAINY, CLOUDY, CLEAR } = WEATHER_TYPES;
 
 const CurrentWeather: React.FC<CurrentWeatherProps> = ({ location, degrees, feelsLikeDegrees, weatherType, humidity }) => {
     const icon = {
@@ -18,6 +20,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ location, degrees, feel
         [STORMY]: <StormyIcon />,
         [RAINY]: <RainyIcon />,
         [CLOUDY]: <CloudyIcon />,
+        [CLEAR]: <ClearIcon />
     };
 
     const sanitizedWeatherType = weatherType.toLowerCase();
