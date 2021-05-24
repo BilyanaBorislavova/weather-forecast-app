@@ -1,16 +1,16 @@
-import React, { FC, useContext, useState } from "react";
+import './search-city.scss';
+
+import React, { useContext, useState } from "react";
 import CityContext from "../../context/city-context";
 import InputWithLabel from "../inputs/input-with-label";
 
-const SearchCity: FC<{}> = ({ ...props }) => {
+const SearchCity = () => {
   const { setCity } = useContext(CityContext);
   const [ inputCity, setInputCity ] = useState('');
 
   const onCityChange = (event: any) => setInputCity(event.target.value);
 
-  const handleClick = () => {
-    setCity(inputCity)
-  };
+  const handleClick = () => setCity(inputCity);
 
   return (
     <article className="search-city">
@@ -22,7 +22,7 @@ const SearchCity: FC<{}> = ({ ...props }) => {
         className="search-city-trigger"
         onClick={handleClick}
       >
-        Search
+        See weather forecast
       </button>
     </article>
   );

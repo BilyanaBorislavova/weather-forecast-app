@@ -1,0 +1,21 @@
+@import '../../styles/tools/mixins.scss';
+
+.search-city {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 8px;
+
+    &-trigger {
+        @include font-family-lato;
+        border-radius: 8px;
+        padding: 8px 12px;
+        color: #fff;
+        background-color: #03a9f4;
+        transition: 0.3s;
+
+        &:hover,
+        &:focus {
+            background-color: #81d4fa;
+        }
+    }
+}
