@@ -39,7 +39,7 @@ const Home = () => {
             //   weatherType={main}
               humidity={humidity}
             /> */}
-            {/* <DailyWeatherCards dailyWeather={dailyWeather} /> */}
+            <DailyWeatherCards dailyWeather={dailyWeather} />
         </section>
     );
 };
