@@ -1,3 +1,5 @@
+import './daily-weather-cards.scss';
+
 import * as React from 'react';
 import DailyWeatherCard from './daily-weather-card';
 
