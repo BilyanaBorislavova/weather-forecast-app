@@ -5,7 +5,7 @@ import { SunnyIcon, StormyIcon, RainyIcon, CloudyIcon } from '../icons/icons';
 interface DailyWeatherCardProps {
     day: string,
     date: number | string,
-    weatherType: string,
+    weatherType: any,
     maxDegrees: number | string,
     minDegrees: number | string,
 };
@@ -19,13 +19,14 @@ const DailyWeatherCard: React.FC<DailyWeatherCardProps> = ({ day, date, weatherT
         [RAINY]: <RainyIcon />,
         [CLOUDY]: <CloudyIcon />,
     };
-
-    const mappedIcon = icon[weatherType];
+    const { main, description } = weatherType;
+    const sanitizedWeatherType = main.toLowerCase();
+    const mappedIcon = icon[sanitizedWeatherType];
     
     return (
         <section className="daily-weather-card">
             <span className="daily-weather-card-day-and-date">
-                `${day} ${date}`
+                {date} {day}
             </span>
             {mappedIcon}
             <article className="daily-weather-card-degrees">
@@ -37,7 +38,7 @@ const DailyWeatherCard: React.FC<DailyWeatherCardProps> = ({ day, date, weatherT
                 </p>
             </article>
             <p className="daily-weather-card-weather-type">
-                {weatherType}
+                {description}
             </p>
         </section>
     );
