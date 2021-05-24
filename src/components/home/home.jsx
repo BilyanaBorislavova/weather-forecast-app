@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import useFetch from 'use-http';
 import useGeoLocation from '../../hooks/use-geo-location';
 import useWeatherForecastApi from '../../hooks/use-weather-forecast-api';
 import WeatherForecastAPIService from '../../services/weather-forecast-api-service';
+import DailyWeatherCards from '../weather/daily-weather-cards';
+import CurrentWeather from '../weather/current-weather';
 
 const Home = () => {
     const weatherApiService = new WeatherForecastAPIService();
@@ -10,8 +11,16 @@ const Home = () => {
     const { latitude, longitude } = coordinates;
     const { code, message } = error;
 
-    const weatherData = useWeatherForecastApi(weatherApiService, [latitude, longitude]);
-    console.log(weatherData)
+    const { data: weatherData, isLoading: isLoadingData } = useWeatherForecastApi(weatherApiService, [latitude, longitude]);
+    const {
+        current: currentWeather,
+        daily: dailyWeather,
+        hourly: hourlyWeather,
+        timezone,
+    } = weatherData;
+    console.log(currentWeather)
+
+    // const { feels_like, humidity, temp, weather } = currentWeather;
 
     if (isLoading) {
         return <h1>Page is Loading!</h1>
@@ -23,9 +32,14 @@ const Home = () => {
 
     return (
         <section className="home">
-            <h1 className="home-title">
-                Your current location is
-            </h1>
+            {/* <CurrentWeather
+              location={timezone}
+              degrees={temp}
+              feelsLikeDegrees={feels_like}
+            //   weatherType={main}
+              humidity={humidity}
+            /> */}
+            {/* <DailyWeatherCards dailyWeather={dailyWeather} /> */}
         </section>
     );
 };
