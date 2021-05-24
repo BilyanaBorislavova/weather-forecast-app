@@ -25,6 +25,9 @@ const DailyWeatherCard: React.FC<DailyWeatherCardProps> = ({ date, weatherType, 
     const sanitizedWeatherType = main.toLowerCase();
     const mappedIcon = icon[sanitizedWeatherType];
     
+    const formattedMaxDegrees = Math.round(Number(maxDegrees));
+    const formattedMinDegrees = Math.round(Number(minDegrees));
+
     return (
         <section className="daily-weather-card">
             <span className="daily-weather-card-date">
@@ -33,10 +36,10 @@ const DailyWeatherCard: React.FC<DailyWeatherCardProps> = ({ date, weatherType, 
             {mappedIcon}
             <article className="daily-weather-card-degrees">
                 <p className="daily-weather-card-degrees-max">
-                    Max degress: {maxDegrees} Celcius
+                    Max degress: {formattedMaxDegrees} Celcius
                 </p>
                 <p className="daily-weather-card-degrees-min">
-                    Min degrees: {minDegrees} Celcius
+                    Min degrees: {formattedMinDegrees} Celcius
                 </p>
             </article>
             <p className="daily-weather-card-weather-type">
