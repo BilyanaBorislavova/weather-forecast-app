@@ -19,9 +19,6 @@ const Home = () => {
         hourly: hourlyWeather,
         timezone,
     } = weatherData;
-    console.log(currentWeather)
-
-    // const { feels_like, humidity, temp, weather } = currentWeather;
 
     let daysCounter = -1; // used to start from the first day
     const dailyWeatherWithDate = dailyWeather && dailyWeather.map(weather => {
@@ -43,13 +40,15 @@ const Home = () => {
 
     return (
         <section className="home">
-            {/* <CurrentWeather
-              location={timezone}
-              degrees={temp}
-              feelsLikeDegrees={feels_like}
-            //   weatherType={main}
-              humidity={humidity}
-            /> */}
+            {currentWeather && (
+                <CurrentWeather
+                  location={timezone}
+                  degrees={currentWeather.temp}
+                  feelsLikeDegrees={currentWeather.feels_like}
+                  weatherType={currentWeather.weather[0].main}
+                  humidity={currentWeather.humidity}
+                />
+            )}
             <DailyWeatherCards dailyWeather={dailyWeatherWithDate} />
         </section>
     );
