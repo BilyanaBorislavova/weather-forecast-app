@@ -7,13 +7,8 @@ const useWeatherForecastApi = (service: WeatherForecastAPIService, options: Arra
     const [ data, setData ] = useState<any>([]);
 
     const getAndSetEndpoint = () => {
-        if (options.length === 1) {
-            setIsLoading(false);
-            setEndpoint(service.getWeatherForecastByCityName(options[0]));
-        } else {
-            setIsLoading(false);
-            setEndpoint(service.getWeatherForecastByLatAndLon(options[0], options[1]));
-        }
+        setIsLoading(false);
+        setEndpoint(service.getWeatherForecastByLatAndLon(options[0], options[1]));
     };
 
     useEffect(() => {
