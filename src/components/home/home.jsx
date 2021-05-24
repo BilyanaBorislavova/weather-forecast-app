@@ -2,7 +2,6 @@ import './home.scss';
 
 import * as React from 'react';
 import useGeoLocation from '../../hooks/use-geo-location';
-import useWeatherForecastApi from '../../hooks/use-weather-forecast-api';
 import WeatherForecastAPIService from '../../services/weather-forecast-api-service';
 import DailyWeatherCards from '../weather/daily-weather-cards';
 import CurrentWeather from '../weather/current-weather';
