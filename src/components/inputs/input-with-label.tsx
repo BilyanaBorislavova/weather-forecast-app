@@ -4,10 +4,10 @@ import * as React from 'react';
 
 interface InputWithLabelProps {
     label: string,
-    props?: any,
+    onChange?: (param: any) => void,
 }
 
-const InputWithLabel: React.FC<InputWithLabelProps> = ({ label, ...props }) => (
+const InputWithLabel: React.FC<InputWithLabelProps> = ({ label, onChange, ...props }) => (
   <label
     htmlFor={label}
     className="input-with-label"
@@ -15,6 +15,7 @@ const InputWithLabel: React.FC<InputWithLabelProps> = ({ label, ...props }) => (
     <input
       className="input-with-label-field"
       placeholder={label}
+      onChange={onChange}
       {...props}
     />
     <span className="input-with-label-text">
