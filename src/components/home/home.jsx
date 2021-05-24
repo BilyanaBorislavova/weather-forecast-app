@@ -19,7 +19,7 @@ const Home = () => {
     const { code, message } = error;
 
     // get city from user input
-    const { latitude: cityLatitude, longitude: cityLongitude } = useGeocode(city);
+    const { latitude: cityLatitude, longitude: cityLongitude, error: cityError } = useGeocode(city);
 
     const weatherApiParams = !city ? [ latitude, longitude ] : [ cityLatitude, cityLongitude ];
     const {
@@ -35,6 +35,10 @@ const Home = () => {
 
     if (!isLoading && hasError) {
         return <h1>{message}</h1>
+    }
+
+    if (cityError) {
+        return <h1>An error occurred!</h1>
     }
 
     return (
