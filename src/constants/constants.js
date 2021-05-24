@@ -3,6 +3,7 @@ const WEATHER_TYPES = {
     CLOUDY: 'clouds',
     RAINY: 'rain',
     STORMY: 'storm',
+    CLEAR: 'clear',
 };
 
 export {
