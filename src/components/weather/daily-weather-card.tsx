@@ -1,9 +1,10 @@
+import './daily-weather-card.scss';
+
 import * as React from 'react';
 import { WEATHER_TYPES } from '../../constants/constants';
 import { SunnyIcon, StormyIcon, RainyIcon, CloudyIcon } from '../icons/icons';
 
 interface DailyWeatherCardProps {
-    day: string,
     date: number | string,
     weatherType: any,
     maxDegrees: number | string,
@@ -12,7 +13,7 @@ interface DailyWeatherCardProps {
 
 const { SUNNY, STORMY, RAINY, CLOUDY } = WEATHER_TYPES;
 
-const DailyWeatherCard: React.FC<DailyWeatherCardProps> = ({ day, date, weatherType, maxDegrees, minDegrees }) => {
+const DailyWeatherCard: React.FC<DailyWeatherCardProps> = ({ date, weatherType, maxDegrees, minDegrees }) => {
     const icon = {
         [SUNNY]: <SunnyIcon />,
         [STORMY]: <StormyIcon />,
@@ -25,16 +26,16 @@ const DailyWeatherCard: React.FC<DailyWeatherCardProps> = ({ day, date, weatherT
     
     return (
         <section className="daily-weather-card">
-            <span className="daily-weather-card-day-and-date">
-                {date} {day}
+            <span className="daily-weather-card-date">
+                {date}
             </span>
             {mappedIcon}
             <article className="daily-weather-card-degrees">
                 <p className="daily-weather-card-degrees-max">
-                    {maxDegrees}
+                    Max degress: {maxDegrees}
                 </p>
                 <p className="daily-weather-card-degrees-min">
-                    {minDegrees}
+                    Min degrees: {minDegrees}
                 </p>
             </article>
             <p className="daily-weather-card-weather-type">
