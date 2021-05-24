@@ -35,13 +35,13 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ location, degrees, feel
                 {mappedIcon}
                 {weatherType}
                 <p className="current-weather-content-temp">
-                    Temperature: {degrees}
+                    Temperature: {degrees} Celcius
                 </p>
                 <p className="current-weather-content-feels-like-temp">
-                    Feels like: {feelsLikeDegrees}
+                    Feels like: {feelsLikeDegrees} Celcius
                 </p>
                 <p className="current-weather-content-humidity">
-                    Humidity: {feelsLikeDegrees}
+                    Humidity: {humidity}%
                 </p>
             </article>
         </section>

@@ -33,10 +33,10 @@ const DailyWeatherCard: React.FC<DailyWeatherCardProps> = ({ date, weatherType, 
             {mappedIcon}
             <article className="daily-weather-card-degrees">
                 <p className="daily-weather-card-degrees-max">
-                    Max degress: {maxDegrees}
+                    Max degress: {maxDegrees} Celcius
                 </p>
                 <p className="daily-weather-card-degrees-min">
-                    Min degrees: {minDegrees}
+                    Min degrees: {minDegrees} Celcius
                 </p>
             </article>
             <p className="daily-weather-card-weather-type">
