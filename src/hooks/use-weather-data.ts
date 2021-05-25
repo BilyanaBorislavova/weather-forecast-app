@@ -1,5 +1,5 @@
 import WeatherForecastAPIService from "../services/weather-forecast-api-service";
-import { getNthDaysFromNow } from "../utils/data-utils";
+import { getNthHoursFromCurrentTime, getNthDaysFromNow } from "../utils/data-utils";
 import useWeatherForecastApi from "./use-weather-forecast-api";
 
 const useWeatherData = (weatherApiService: WeatherForecastAPIService, params: Array<string>) => {
@@ -21,11 +21,22 @@ const useWeatherData = (weatherApiService: WeatherForecastAPIService, params: Ar
         })
     });
 
+    let startingHour = 0;
+    const hourlyWeatherWithHours = hourlyWeather && hourlyWeather.map((weather: any) => {
+        const hour = getNthHoursFromCurrentTime(startingHour);
+        startingHour += 1;
+        
+        return {
+            ...weather,
+            hour: hour
+        }
+    })
+
     return {
         isLoadingWeatherData,
         currentWeather,
         dailyWeatherWithDate,
-        hourlyWeather,
+        hourlyWeatherWithHours,
         location,
     }
 };
