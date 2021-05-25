@@ -14,6 +14,15 @@ const getNthDaysFromNow = (numberOfDays: number) => {
     return format(nthDaysFromCurrentTimeDate, DEFAULT_DATE_FORMAT); 
 };
 
+const getCurrentHour = () => new Date().getHours();
+
+const addHoursFromCurrentTime = (hours: number) => new Date().setTime(new Date().getTime() + (hours*60*60*1000));
+
+const getNthHoursFromCurrentTime = (hours: number) => new Date(addHoursFromCurrentTime(hours)).getHours();
+
 export {
     getNthDaysFromNow,
-}
+    getCurrentHour,
+    addHoursFromCurrentTime,
+    getNthHoursFromCurrentTime,
+};
