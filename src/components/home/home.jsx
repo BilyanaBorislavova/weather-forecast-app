@@ -8,6 +8,8 @@ import CurrentWeather from '../weather/current-weather';
 import useWeatherData from '../../hooks/use-weather-data';
 import useGeocode from '../../hooks/use-geo-code';
 import CityContext from '../../context/city-context';
+import HourlyWeatherForecast from '../weather/hourly-weather-forecast';
+import { getCurrentHour } from '../../utils/data-utils';
 
 const Home = () => {
     const weatherApiService = new WeatherForecastAPIService();
@@ -25,10 +27,11 @@ const Home = () => {
     const {
         currentWeather,
         dailyWeatherWithDate,
-        hourlyWeather,
+        hourlyWeatherWithHours,
         location
     } = useWeatherData(weatherApiService, weatherApiParams);
-
+    console.log(hourlyWeatherWithHours)
+    
     if (isLoading) {
         return <h1>Page is Loading!</h1>
     }
@@ -40,7 +43,7 @@ const Home = () => {
     if (cityError) {
         return <h1>An error occurred!</h1>
     }
-
+    
     return (
         <section className="home">
             {currentWeather && (
@@ -53,6 +56,7 @@ const Home = () => {
                 />
             )}
             <DailyWeatherCards dailyWeather={dailyWeatherWithDate} />
+            {/* <HourlyWeatherForecast hourlyTemperature={} /> */}
         </section>
     );
 };

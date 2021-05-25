@@ -21,7 +21,7 @@ const useWeatherForecastApi = (service: WeatherForecastAPIService, options: Arra
                 .then(res => res.json())
                 .then(res => setData(res))
         }
-    }, [ isLoading, endpoint ])
+    }, [ isLoading, endpoint ]);
 
     return {
         data,
