@@ -1,0 +1,7 @@
+@import '../../styles/tools/mixins.scss';
+
+.error-message {
+    @include font-family-lato;
+    font-size: 28px;
+    text-align: center;
+}
