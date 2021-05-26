@@ -9,10 +9,14 @@
 - Shows the weather forecast for the next 7 days for user's current location
 - Shows the weather forecast for the next 12 hours for user's current location
 
+![image](https://user-images.githubusercontent.com/32268510/119693967-79ce6880-be55-11eb-8868-889a1324a54e.png)
+
  ### 2. Based on user search
 - Shows the current weather forecast for user's searched location
 - Shows the weather forecast for the next 7 days for user's searched location
 - Shows the weather forecast for the next 12 hours for user's searched location
+
+![image](https://user-images.githubusercontent.com/32268510/119694142-a4202600-be55-11eb-9e7e-c0f2c9a78e52.png)
 
 ## Running the application locally
 1. Clone the repository
