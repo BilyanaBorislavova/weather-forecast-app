@@ -9,7 +9,14 @@ import useWeatherData from '../../hooks/use-weather-data';
 import useGeocode from '../../hooks/use-geo-code';
 import CityContext from '../../context/city-context';
 import HourlyWeatherForecast from '../weather/hourly-weather-forecast';
-import { getCurrentHour } from '../../utils/data-utils';
+import { formatHour } from '../../utils/data-utils';
+import LoadingWithTitle from '../loading/loading-with-title';
+import { LOADING_TYPES } from '../../constants/constants';
+import ErrorMessage from '../error/error-message';
+import ErrorMessageWithIcon from '../error/error-message-with-icon';
+import { StormyIcon } from '../icons/icons';
+
+const { SPIN } = LOADING_TYPES;
 
 const Home = () => {
     const weatherApiService = new WeatherForecastAPIService();
@@ -30,18 +37,36 @@ const Home = () => {
         hourlyWeatherWithHours,
         location
     } = useWeatherData(weatherApiService, weatherApiParams);
-    console.log(hourlyWeatherWithHours)
-    
+
+    const hours = hourlyWeatherWithHours && hourlyWeatherWithHours.map(({ hour }) => formatHour(hour)).flat();
+    const hourlyTemperature = hourlyWeatherWithHours && hourlyWeatherWithHours.map(({ temp }) => Math.round(temp)).flat();
+
     if (isLoading) {
-        return <h1>Page is Loading!</h1>
+        return (
+            <LoadingWithTitle
+              type={SPIN}
+              color="#03a9f4"
+              title="Weather Forecast is Loading..."
+            />
+        )
     }
 
     if (!isLoading && hasError) {
-        return <h1>{message}</h1>
+        return (
+            <ErrorMessageWithIcon
+              message={message}
+              icon={<StormyIcon />}
+            />
+        );
     }
 
     if (cityError) {
-        return <h1>An error occurred!</h1>
+        return (
+            <ErrorMessageWithIcon
+              message="An error has occured"
+              icon={<StormyIcon />}
+            />
+        );
     }
     
     return (
@@ -56,7 +81,10 @@ const Home = () => {
                 />
             )}
             <DailyWeatherCards dailyWeather={dailyWeatherWithDate} />
-            {/* <HourlyWeatherForecast hourlyTemperature={} /> */}
+            <HourlyWeatherForecast
+              hours={hours}
+              hourlyTemperature={hourlyTemperature}
+            />
         </section>
     );
 };
