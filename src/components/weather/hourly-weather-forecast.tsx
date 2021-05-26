@@ -13,22 +13,28 @@ const options = {
     },
 };
 
-const HourlyWeatherForecast = ({ hours, hourlyTemperature }) => {
+interface HourlyWeatherForecastProps {
+    hours: Array<number>,
+    hourlyTemperature: Array<number>,
+}
+
+const HourlyWeatherForecast: React.FC<HourlyWeatherForecastProps> = ({ hours, hourlyTemperature }) => {
     const forecastData = {
         labels: hours,
         datasets: [
             {
-                label: '123',
+                label: 'Degrees in Celcius',
                 data: hourlyTemperature,
                 fill: false,
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgba(255, 99, 132, 0.2)',
+                backgroundColor: '#ffffff',
+                borderColor: '#03a9f4',
             },
         ],
     };
 
     return (
         <Line
+          type="line"
           data={forecastData}
           options={options}
         />
