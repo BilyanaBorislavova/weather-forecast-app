@@ -20,9 +20,12 @@ const addHoursFromCurrentTime = (hours: number) => new Date().setTime(new Date()
 
 const getNthHoursFromCurrentTime = (hours: number) => new Date(addHoursFromCurrentTime(hours)).getHours();
 
+const formatHour = (hour: number) => `${hour}:00`;
+
 export {
     getNthDaysFromNow,
     getCurrentHour,
     addHoursFromCurrentTime,
     getNthHoursFromCurrentTime,
+    formatHour,
 };
