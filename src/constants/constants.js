@@ -6,6 +6,18 @@ const WEATHER_TYPES = {
     CLEAR: 'clear',
 };
 
+const LOADING_TYPES = {
+    BLANK: 'blank',
+    BALLS: 'balls',
+    BARS: 'bars',
+    BUBBLES: 'bubbles',
+    CUBES: 'cubes',
+    SPIN: 'spin',
+    SPINNING_BUBBLES: 'spinningBubbles',
+    SPOKES: 'spokes',
+};
+
 export {
-    WEATHER_TYPES
+    WEATHER_TYPES,
+    LOADING_TYPES,
 }
