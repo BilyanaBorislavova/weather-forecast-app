@@ -1,5 +1,16 @@
+@import '../../styles/tools/breakpoints.scss';
+
 .home {
     display: grid;
     flex-flow: column;
     row-gap: 42px;
+    margin-bottom: 96px;
+
+    &-hourly-weather-forecast {
+        display: none;
+
+        @include for-desktop-up {
+            display: block;
+        }
+    }
 }

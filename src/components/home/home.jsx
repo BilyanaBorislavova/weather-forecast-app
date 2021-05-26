@@ -38,7 +38,7 @@ const Home = () => {
         location
     } = useWeatherData(weatherApiService, weatherApiParams);
 
-    const hours = hourlyWeatherWithHours && hourlyWeatherWithHours.map(({ hour }) => formatHour(hour)).flat();
+    const hours = hourlyWeatherWithHours && hourlyWeatherWithHours.slice(0, 12).map(({ hour }) => formatHour(hour)).flat();
     const hourlyTemperature = hourlyWeatherWithHours && hourlyWeatherWithHours.map(({ temp }) => Math.round(temp)).flat();
 
     if (isLoading) {
@@ -81,10 +81,12 @@ const Home = () => {
                 />
             )}
             <DailyWeatherCards dailyWeather={dailyWeatherWithDate} />
-            <HourlyWeatherForecast
-              hours={hours}
-              hourlyTemperature={hourlyTemperature}
-            />
+            <section className="home-hourly-weather-forecast">
+                <HourlyWeatherForecast
+                hours={hours}
+                hourlyTemperature={hourlyTemperature}
+                />
+            </section>
         </section>
     );
 };
