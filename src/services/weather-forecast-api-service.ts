@@ -9,9 +9,6 @@ class WeatherForecastAPIService {
 
     getWeatherForecastByLatAndLon = (lat: string, lon: string) =>
         `${this.weatherForecastApi}onecall?lat=${lat}&lon=${lon}&units=metric&appid=${this.weatherForecastApiKey}`;
-    
-    getWeatherForecastByCityName = (cityName: string) =>
-        `${this.weatherForecastApi}forecast?q=${cityName}&appid=${this.weatherForecastApiKey}`;
 }
 
 export default WeatherForecastAPIService;
