@@ -25,8 +25,12 @@
 4. Run npm start, the application will be available on [http://localhost:3000/](http://localhost:3000/)
 
 ## Ideas on application improvements (which would have extended the deadline)
+### Tech stack:
+1. Unit tests!!!
+2. ESLint. I initially setup it but it was slowing down the work too much so I disabled it :(
+3. Better typescript interfaces. (I'm a TS newbie with a deadline, so some of the prop types are 'any')
+
+## Features and UI/UX
 1. Better error handling for wrong user city input
 2. Have city autocomplete option from a dropdown menu, when user is typing
 3. Fancier and sleeker design
-4. ESLint. I initially setup it but it was slowing down the work too much so I disabled it :(
-5. Better typescript interfaces. (I'm a TS newbie with a deadline, so some of the prop types are 'any')
